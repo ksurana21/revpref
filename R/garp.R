@@ -10,7 +10,7 @@
 #' @note T = number of observations and N = number of goods
 #'
 #' @examples
-GARP <- function(p,q)
+garp <- function(p,q)
 {
 
   passgarp <- 1

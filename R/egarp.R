@@ -1,3 +1,15 @@
+#' Tests consistency with the Generalized Axiom of Revealed Preference at efficiency level \code{e}
+#'
+#' @param p T X N matrix of prices
+#' @param q T X N matrix of quantities
+#' @param e efficiency level
+#'
+#' @return 1 if the data is consistent with GARP at efficiency level e, returns 0 otherwise.
+#' @export
+#'
+#'@note T = number of observations and N = number of goods
+#'
+#' @examples
 egarp <- function(p,q,e)
 {
 
