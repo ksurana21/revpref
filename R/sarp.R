@@ -1,18 +1,20 @@
+#' Checks consistency with Strong Axiom of Revealed Preferences (SARP).
+#'
+#' @param p T X N matrix of prices.
+#' @param q T X N matrix pf quantities.
+#'
+#' @note T = number of observations and N = number of goods
+#'
+#' @return \code{(passsarp,nviol)} where \code{passsarp} = 1 if data is consistent with SARP and = 0 otherwise.
+#' \code{nviol} is the number of SARP violations.
+#' @export
+#'
+#' @examples
 SARP <- function(p,q)
 {
 
   passsarp <- 1
-
-  t = dim(p)[1]
-  z <- matrix(0, nrow = t, ncol = t)
-  for(j in 1:t)
-  {
-    for(i in 1:t)
-    {
-      z[j,i] <- sum(p[j,]*q[i,])
-    }
-  }
-
+  t <- dim(p)[1]
   DRP <- diag(t)
   for(i in 1:t)
   {
@@ -23,19 +25,21 @@ SARP <- function(p,q)
   }
 
   RP <- warshall(DRP)
+  nviol <- 0
 
   for(i in 1:t)
   {
     for(j in 1:t)
     {
       if(i != j)
-      {if(R[i,j] == 1 & G[j,i] == 1) # i is revealed preferred to j & j is directly revealed preferred to i
+      {if(RP[i,j] == 1 & DRP[j,i] == 1) # i is revealed preferred to j & j is directly revealed preferred to i
       {
-        if (all(q[i,]==q[j,]) == FALSE){
-          passsarp = 1}
+        if(any(q[i,]!= q[j,])){
+          passsarp = 0
+          nviol = nviol + 1}
       }
       }
     }
   }
-  passsarp
+  return(c(passsarp,nviol))
 }
