@@ -1,4 +1,4 @@
-#' Given dataset (\code{p},\code{q}) creates appropriate graph list
+#' Given data set (\code{p},\code{q}) creates appropriate graph list
 #'
 #' @param p T x N matrix of prices
 #' @param q T X N matrix of quantities
