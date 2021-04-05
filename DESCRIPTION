@@ -14,3 +14,5 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+URL: https://github.com/ksurana21/revpref
+BugReports: https://github.com/ksurana21/revpref/issues
