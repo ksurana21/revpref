@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-SARP <- function(p,q)
+sarp <- function(p,q)
 {
 
   passsarp <- 1
