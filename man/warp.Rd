@@ -4,12 +4,14 @@
 \alias{warp}
 \title{Tests consistency with the Weak Axiom of Revealed Preference (WARP)}
 \usage{
-warp(p, q)
+warp(p, q, e = 1)
 }
 \arguments{
 \item{p}{T X N matrix of prices}
 
 \item{q}{T X N matrix of quantities}
+
+\item{e}{efficiency level}
 }
 \value{
 \code{(passwarp, nviol)} where \code{passwarp} = 1 if the data is consistent with WARP and = 0 otherwise.

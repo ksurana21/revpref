@@ -2,21 +2,23 @@
 % Please edit documentation in R/garp.R
 \name{garp}
 \alias{garp}
-\title{Tests consistency with Generalized Axiom of Revealed Preferences (GARP)}
+\title{Tests consistency with Generalized Axiom of Revealed Preferences (GARP) at efficiency level e}
 \usage{
-garp(p, q)
+garp(p, q, e = 1)
 }
 \arguments{
 \item{p}{T X N matrix of prices}
 
 \item{q}{T X N matrix of quantities}
+
+\item{e}{efficiency level. Defaults to 1.}
 }
 \value{
-\code{(passgarp, nviol)} where \code{passgarp} = 1 if the data is consistent with GARP and = 0 otherwise.
+\code{(passgarp, nviol)} where \code{passgarp} = 1 if the data is consistent with GARP at efficiency level e and = 0 otherwise.
 \code{nviol} is the number of GARP violations.
 }
 \description{
-Tests consistency with Generalized Axiom of Revealed Preferences (GARP)
+Tests consistency with Generalized Axiom of Revealed Preferences (GARP) at efficiency level e
 }
 \note{
 T = number of observations and N = number of goods

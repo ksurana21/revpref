@@ -2,21 +2,23 @@
 % Please edit documentation in R/sarp.R
 \name{sarp}
 \alias{sarp}
-\title{Checks consistency with Strong Axiom of Revealed Preferences (SARP).}
+\title{Checks consistency with Strong Axiom of Revealed Preferences (SARP)}
 \usage{
-sarp(p, q)
+sarp(p, q, e = 1)
 }
 \arguments{
 \item{p}{T X N matrix of prices.}
 
 \item{q}{T X N matrix pf quantities.}
+
+\item{e}{efficiency level. Defaults to 1.}
 }
 \value{
 \code{(passsarp,nviol)} where \code{passsarp} = 1 if data is consistent with SARP and = 0 otherwise.
 \code{nviol} is the number of SARP violations.
 }
 \description{
-Checks consistency with Strong Axiom of Revealed Preferences (SARP).
+Checks consistency with Strong Axiom of Revealed Preferences (SARP)
 }
 \note{
 T = number of observations and N = number of goods

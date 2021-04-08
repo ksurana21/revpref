@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{graph_list}
 \alias{graph_list}
-\title{Given dataset (\code{p},\code{q}) creates appropriate graph list}
+\title{Given data set (\code{p},\code{q}) creates appropriate graph list}
 \usage{
 graph_list(p, q, bound)
 }
@@ -17,7 +17,7 @@ graph_list(p, q, bound)
 A graph list which is a list of \code{T} lists
 }
 \description{
-Given dataset (\code{p},\code{q}) creates appropriate graph list
+Given data set (\code{p},\code{q}) creates appropriate graph list
 }
 \note{
 T = number of observations and N = number of goods.

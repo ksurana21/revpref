@@ -2,6 +2,7 @@
 #'
 #' @param p T X N matrix of prices
 #' @param q T X N matrix of quantities
+#' @param e efficiency level
 #'
 #' @return \code{(passwarp, nviol)} where \code{passwarp} = 1 if the data is consistent with WARP and = 0 otherwise.
 #' \code{nviol} is the number of WARP violations.
@@ -10,7 +11,7 @@
 #' @note T = number of observations and N = number of goods
 #'
 #' @examples
-warp <- function(p,q)
+warp <- function(p,q,e=1)
 {
 
   passwarp <- 1
@@ -20,7 +21,7 @@ warp <- function(p,q)
   {
     for(j in 1:t)
     {
-      if(sum(p[i,]*q[j,]) <= sum(p[i,]*q[i,])) {DRP[i,j] = 1}
+      if(sum(p[i,]*q[j,]) <= e*sum(p[i,]*q[i,])) {DRP[i,j] = 1}
     }
   }
 

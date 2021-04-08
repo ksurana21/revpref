@@ -20,7 +20,7 @@ ccei <- function(p,q){
 
     while ((eupper-elower)/elower >= 0.0000000000001){
       eevaluate = 0.5*(eupper+elower)
-      passevaluate = egarp(p,q,eevaluate)
+      passevaluate = garp(p,q,eevaluate)[1]
       if(passevaluate == 1){
         elower = eevaluate
       }

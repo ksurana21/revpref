@@ -1,7 +1,8 @@
-#' Checks consistency with Strong Axiom of Revealed Preferences (SARP).
+#' Checks consistency with Strong Axiom of Revealed Preferences (SARP)
 #'
 #' @param p T X N matrix of prices.
 #' @param q T X N matrix pf quantities.
+#' @param e efficiency level. Defaults to 1.
 #'
 #' @note T = number of observations and N = number of goods
 #'
@@ -10,7 +11,7 @@
 #' @export
 #'
 #' @examples
-sarp <- function(p,q)
+sarp <- function(p,q,e=1)
 {
 
   passsarp <- 1
@@ -20,7 +21,7 @@ sarp <- function(p,q)
   {
     for(j in 1:t)
     {
-      if(sum(p[i,]*q[j,]) <= sum(p[i,]*q[i,])) {DRP[i,j] = 1}
+      if(sum(p[i,]*q[j,]) <= e*sum(p[i,]*q[i,])) {DRP[i,j] = 1}
     }
   }
 
