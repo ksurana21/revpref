@@ -17,7 +17,7 @@ garp <- function(p,q,e=1)
   passgarp <- 1
   t <- dim(p)[1]
   DRP <- diag(t)
-  PO <- matrix(0, nrow=t,ncol=t)
+  PO <- matrix(0, nrow = t, ncol = t)
 
   for(i in 1:t)
   {

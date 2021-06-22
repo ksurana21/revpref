@@ -2,8 +2,7 @@
 % Please edit documentation in R/mpi.R
 \name{mpi}
 \alias{mpi}
-\title{Computes minimum and maximum money pump index following Smeulders et al. (2013).
-This function is meant for the analysis of prices and quantities data (e.g., of bundles of goods and corresponding prices).}
+\title{Computes bounds for the Money Pump Index}
 \usage{
 mpi(p, q)
 }
@@ -16,7 +15,7 @@ mpi(p, q)
 1 X 2 vector of minimum and maximum MPI of dataset (\code{p},\code{q}).
 }
 \description{
-Computes minimum and maximum money pump index following Smeulders et al. (2013).
+following Smeulders et al. (2013).
 This function is meant for the analysis of prices and quantities data (e.g., of bundles of goods and corresponding prices).
 }
 \note{

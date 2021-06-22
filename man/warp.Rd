@@ -2,24 +2,37 @@
 % Please edit documentation in R/warp.R
 \name{warp}
 \alias{warp}
-\title{Tests consistency with the Weak Axiom of Revealed Preference (WARP)}
+\title{The Weak Axiom of Revealed Preference at efficiency \code{e}}
 \usage{
-warp(p, q, e = 1)
+warp(p, q, efficiency = 1)
 }
 \arguments{
-\item{p}{T X N matrix of prices}
+\item{p}{A \code{T X N} matrix of observed prices where each row corresponds to an observation and each column corresponds to a consumption category.}
 
-\item{q}{T X N matrix of quantities}
+\item{q}{A \code{T X N} matrix of observed quantities where each row corresponds to an observation and each column corresponds to a consumption category.}
 
-\item{e}{efficiency level}
+\item{efficiency}{the efficiency level \code{e}, is a real number between 0 and 1, which allows for small margin of error when checking for consistency. The default value is 1 which corresponds to the test of exact consistency with WARP conditions.}
 }
 \value{
-\code{(passwarp, nviol)} where \code{passwarp} = 1 if the data is consistent with WARP and = 0 otherwise.
-\code{nviol} is the number of WARP violations.
+The function returns two elements. The first element \code{passwarp} is a binary indicator for consistency of the data set with WARP conditions. It takes a value 1 is the data set is WARP consistent and a value 0 of the data set is WARP inconsistent.
+The second element \code{nviol} reports on the number of WARP violations.
 }
 \description{
-Tests consistency with the Weak Axiom of Revealed Preference (WARP)
+This function checks consistency of a given data set with the Weak Axiom of Revealed Preferences at efficiency \code{e} (\code{e}WARP).
+If the data set is inconsistent with this axiom, it also reports on the number of \code{e}WARP violations.
 }
-\note{
-T = number of observations and N = number of goods
+\examples{
+
+# define price matrix
+p = matrix(c(4,4,4,1,9,3,2,8,3,1,8,4,3,1,9,3,2,8,8,4,1,4,1,8,9,3,1,8,3,2),nrow = 10, ncol = 3, byrow = TRUE)
+
+# define quantity matrix
+q = matrix(c( 1.81,0.19,10.51,17.28,2.26,4.13,12.33,2.05,2.99,6.06,5.19,0.62,11.34,10.33,0.63,4.33,8.08,2.61,4.36,1.34, 9.76,1.37,36.35, 1.02,3.21,4.97,6.20,0.32,8.53,10.92), nrow = 10, ncol = 3, byrow = TRUE)
+print(q)
+
+# Test consistency with WARP and compute the number of WARP violations
+warp(p,q)
+
+# Test consistency with WARP at efficiency level 0.95 and compute the number of WARP violations
+warp(p,q, efficiency = 0.95)
 }

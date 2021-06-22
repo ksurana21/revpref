@@ -1,4 +1,6 @@
-#' Computes minimum and maximum money pump index following Smeulders et al. (2013).
+#' Computes bounds for the Money Pump Index
+#'
+#'  following Smeulders et al. (2013).
 #' This function is meant for the analysis of prices and quantities data (e.g., of bundles of goods and corresponding prices).
 #'
 #' @param p T X N matrix of prices
@@ -28,12 +30,12 @@ mpi <- function(p,q)
       }
     }
 
-    d <- graph_list(p,q,-1)                        ## d stores the graph corresponding to consumption data x
+    d <- graph_list(p_new,q_new,-1)                        ## d stores the graph corresponding to consumption data x
     if(cycle_detection_topo(d)== 0){return(c(0,0))}          ## if graph is acyclic, then there is no GARP violation
 
 
     minimum_MPI <- minimum_cost_time(d,-1000000,1000000)
-    d <- graph_list(p,q,1)
+    d <- graph_list(p_new,q_new,1)
     maximum_MPI <- -1* minimum_cost_time(d,-1000000,1000000)
     return(round(c(minimum_MPI,maximum_MPI),5))
   }
