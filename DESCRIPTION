@@ -1,5 +1,5 @@
 Package: revpref
-Title: Nonparametric revealed preference tests to check for economic rationality
+Title: Tools for computational revealed preference analysis
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Khushboo",
@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "khushboo.surana@york.ac.uk",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Description: The goal of revpref is to provide a set of tools to test whether consumer demand data satisfy a number of revealed preference axioms; compute measures of goodness-of-fit when the data is inconsistent with the axioms; and compute power against uniformly random behavior.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

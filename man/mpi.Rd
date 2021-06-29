@@ -2,25 +2,67 @@
 % Please edit documentation in R/mpi.R
 \name{mpi}
 \alias{mpi}
-\title{Computes bounds for the Money Pump Index}
+\title{Computes minimum and maximum money pump index}
 \usage{
 mpi(p, q)
 }
 \arguments{
-\item{p}{T X N matrix of prices}
+\item{p}{A \eqn{T X N} matrix of observed prices where each row corresponds to an observation and each column
+corresponds to a consumption category. \eqn{T} is the number of observations and \eqn{N} is the number of consumption
+categories.}
 
-\item{q}{T X N matrix of quantities}
+\item{q}{A \eqn{T X N} matrix of observed quantities where each row corresponds to an observation and each column
+corresponds to a consumption category.\eqn{T} is the number of observations and \eqn{N} is the number of consumption
+categories.}
 }
 \value{
-1 X 2 vector of minimum and maximum MPI of dataset (\code{p},\code{q}).
+The function returns two elements. The first element (\code{minimum_MPI}) is the minimum MPI and the second
+element (\code{maximum_MPI}) is the maximum MPI.
 }
 \description{
-following Smeulders et al. (2013).
-This function is meant for the analysis of prices and quantities data (e.g., of bundles of goods and corresponding prices).
+The nonparametric tests of rationality axioms (\code{\link{garp}, \link{sarp} and \link{warp}}) are "sharp" in nature.
+This means that the tests will only tell us whether or not the observed data is consistent with a given axiom.
+When the data set fails to satisfy the axiom, it is often useful to know how close the observed behavior is to satisfying
+the rationality restrictions (see Varian (1990) for an extensive motivation). Over the years, several measures (called
+goodness-of-fit indices) have been introduced to evaluate the degree to which the observed data is consistent with the
+rationality axiom. Echenique et al. (2011) proposed the money pump index (MPI) as a measure of severity of violations.
+The MPI is defined as the fraction of budget that an arbitrageur can pump from the irrational consumer. The higher is
+the MPI value, the more severe is the violation of rationality. While the MPI concept is conceptually appealing, it may
+be computationally challenging to compute this index for data sets with large number of observations. In particular,
+Smeulders et al. (2013) showed that computing mean and median MPI is an NP-hard problem. As easy-to-apply
+alternatives, they proposed the use of minimum and maximum MPI which can be computed efficiency (in polynomial time). This
+function implements the algorithm provided by these authors to measure the minimum and maximum MPI values for the given
+data.
 }
-\note{
-T = number of observations and N = number of goods
+\section{References}{
+
+\itemize{
+\item Echenique, Federico, Sangmok Lee, and Matthew Shum. "The money pump as a measure of revealed preference
+violations." Journal of Political Economy 119, no. 6 (2011): 1201-1223.
+\item Smeulders, Bart, Laurens Cherchye, Frits CR Spieksma, and Bram De Rock. "The money pump as a measure of
+revealed preference violations: A comment." Journal of Political Economy 121, no. 6 (2013): 1248-1258.
+\item Varian, Hal R. "Goodness-of-fit in optimizing models." Journal of Econometrics 46, no. 1-2 (1990): 125-140.
 }
-\references{
-Smeulders, Bart, Laurens Cherchye, Frits CR Spieksma, and Bram De Rock. "The money pump as a measure of revealed preference violations: A comment." Journal of Political Economy 121, no. 6 (2013): 1248-1258.
+}
+
+\examples{
+# define a price matrix
+p = matrix(c(4,4,4,1,9,3,2,8,3,1,
+8,4,3,1,9,3,2,8,8,4,
+1,4,1,8,9,3,1,8,3,2),
+nrow = 10, ncol = 3, byrow = TRUE)
+
+# define a quantity matrix
+q = matrix(c( 1.81,0.19,10.51,17.28,2.26,4.13,12.33,2.05,2.99,6.06,
+5.19,0.62,11.34,10.33,0.63,4.33,8.08,2.61,4.36,1.34,
+9.76,1.37,36.35, 1.02,3.21,4.97,6.20,0.32,8.53,10.92),
+nrow = 10, ncol = 3, byrow = TRUE)
+
+
+# compute bounds on MPI
+mpi(p,q)
+
+}
+\seealso{
+\code{\link{ccei}} for the critical cost efficiency index.
 }
