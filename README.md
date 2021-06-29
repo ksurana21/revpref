@@ -10,7 +10,7 @@ status](https://travis-ci.com/ksurana21/revpref.svg?branch=master)](https://trav
 <!-- badges: end -->
 
 The goal of `revpref` is to provide a set of tools to test whether
-consumer demand data satisfy a number of revealed preference axioms;
+consumer demand data satisfies a number of revealed preference axioms;
 compute measures of goodness-of-fit when the data is inconsistent with
 the axioms; and compute power against uniformly random behavior. Below
 we provide a brief description of the functions provided in this
@@ -45,18 +45,18 @@ package.
       - `ccei` computes the critical cost efficiency index, CCEI (also
         known as the Afriat efficiency index). CCEI is the maximal value
         of the efficiency level at which the data satisfies GARP.
-        Intuitively, CCEI indicates how close the data is to satisfying
-        the (strict) GARP conditions. The user needs to provide a T X N
-        price matrix and a T X N quantity matrix were T corresponds to
-        the number of observations and N corresponds to the number of
-        consumption categories. Optionally, the user can specify the
-        axiom (WARP, SARP or GARP) for which CCEI needs to be computed.
-        When no axiom is specified, the function takes the default
-        option as GARP.
+        Intuitively, the CCEI indicates how close the data is to
+        satisfying the (strict) GARP conditions. The user needs to
+        provide a T X N price matrix and a T X N quantity matrix were T
+        corresponds to the number of observations and N corresponds to
+        the number of consumption categories. Optionally, the user can
+        specify the axiom (WARP, SARP or GARP) for which the CCEI needs
+        to be computed. When no axiom is specified, the function takes
+        the default option as GARP.
     
       - `mpi` computes the minimum and maximum money pump index (MPI).
         Echenique et al. (2011) proposed the money pump index as a
-        measure of severity of GARP violation. It is defined as the
+        measure of the severity of GARP violation. It is defined as the
         amount of money that an arbitrageur can “pump” from an
         irrational consumer. While the MPI concept is conceptually
         appealing, it may be computationally challenging to compute this
@@ -73,14 +73,15 @@ package.
     revealed preference axiom
     
       - `bronars` computes the power index proposed by Bronars (1987).
-        Bronars’ power is defined as the probability of rejecting a
-        given rationality axiom given that the data is defined by an
-        irrational behavior. Bronars suggests Becker’s (1962) approach
-        for simulating an irrational behavior. More specifically, we
-        simulate irrational demand by generating consumption choices
-        that are uniformly distributed on the budget hyperplane. The
-        function `power` computes the Bronars power index for any of
-        three axiom (WARP, SARP, or GARP) at any efficiency level.
+        The Bronars power index is defined as the probability of
+        rejecting a given rationality axiom given that the data is
+        defined by an irrational behavior. Bronars suggest Becker’s
+        (1962) approach for simulating an irrational behavior. More
+        specifically, we simulate irrational demand by generating
+        consumption choices that are uniformly distributed on the budget
+        hyperplane. The function `bronars` computes the Bronars power
+        index for any of the three axioms (WARP, SARP, or GARP) at any
+        efficiency level.
 
 ## Installation
 
@@ -101,7 +102,7 @@ devtools::install_github("ksurana21/revpref")
 ## Example
 
 Below we provide some simple examples to illustrate the three types of
-functionality available within the package. To begin with we define
+functionality available within the package. To begin with we define the
 price and quantity matrices. Both of these matrices (defined below) have
 ten rows corresponding to the number of observations and three columns
 corresponding to the number of consumption categories.
@@ -139,11 +140,11 @@ result
 
 The first element is a binary indicator telling us whether or not the
 data set passed the rationality test. Here, we see that the first
-element is 0 which means that the data set failed to satisfy GARP
-restrictions. The second element indicates that there are 8 GARP
-violations. In this example, we did not specify the efficiency level, in
-which case the default value of 1 was applied. In the next example, we
-check GARP at 90% efficiency level.
+element is 0 which means that the data set failed to satisfy GARP. The
+second element indicates that there are 8 GARP violations. In this
+example, we did not specify the efficiency level, in which case the
+default value of 1 was applied. In the next example, we check GARP at
+90% efficiency level.
 
 ``` r
 
@@ -174,16 +175,16 @@ result
 
 We see that the data set is inconsistent with both SARP and WARP
 conditions. All the three tests revealed that our data set failed to
-satisfy the rationality hypothesis. However, these tests did not
-indicate how close our data set was to satisfying the axioms. In the
-next step, we compute goodness-of-fit indices to measure the severity of
+satisfy the rationality axioms. However, these tests did not indicate
+how close our data set was to satisfying the axioms. In the next step,
+we compute goodness-of-fit indices to measure the severity of
 violations.
 
 **Goodness-of-fit**
 
 The package provides functionalities for two goodness-of-fit measures.
 The first measure is the critical cost efficiency index (CCEI) which is
-defined as maximal efficiency level such that the data is consistent
+defined as the maximal efficiency level at that the data is consistent
 with rationality restrictions. From the previous exercises, we know that
 our data set failed to satisfy GARP at full efficiency but is consistent
 with GARP at 90% efficiency. As such we can expect the CCEI to be
@@ -199,10 +200,10 @@ result
 
 Using the function `ccei`, we find that the highest efficiency level at
 which the data set is consistent with GARP is equal to 0.9488. This
-indicates that although our data set is inconsistent with strict GARP
-restrictions, it is very close to satisfying the rationality
-restriction. We can also compute CCEI for SARP and WARP by providing an
-additional argument (model = “SARP” or model = “WARP”).
+indicates that although our data set is inconsistent with the strict
+GARP restrictions, it is very close to satisfying it. We can also
+compute the CCEI for SARP and WARP by providing an additional argument
+(model = “SARP” or model = “WARP”).
 
 ``` r
 
@@ -233,25 +234,25 @@ consumer.
 
 **Power**
 
-In addition to goodness-of-fit, empirical studies usually also report
-the power measure. As discussed above, the power of a revealed
+In addition to goodness-of-fit measures, empirical studies usually also
+report the power measure. As discussed above, the power of a revealed
 preference test is a measure of the likelihood of detecting an
-irrational behavior. We can use the function `bronars` to compute
-Bronars’ power index for the given data set.
+irrational behavior. We can use the function `bronars` to compute the
+Bronars power index for the given data set.
 
 ``` r
 
 # Compute power 
 result <- bronars(p, q)
 result
-#> [1] 0.852
+#> [1] 0.855
 ```
 
-We find that for the given budget conditions, there is about 85.20%
+We find that for the given budget conditions, there is about 85.50%
 probability of detecting an irrational behavior. As discussed above,
 here we have used Becker’s (1962) approach of using uniformly random
 consumption choices to simulate irrational consumer. As a final
-exercise, we analyze how the power of our GARP test changes with the
+exercise, we analyze how the power of our GARP test changes with
 efficiency level.
 
 ``` r
@@ -269,19 +270,9 @@ names(power) <- c("efficiency", "power")
 plot(power, type = "b",col = "black", lwd = 1, pch = 20, bty = "L")
 ```
 
-<div class="figure" style="text-align: center">
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="75%" style="display: block; margin: auto;" />
 
-<img src="man/figures/README-unnamed-chunk-8-1.png" alt="\label{fig} Power versus efficiency of GARP test" width="75%" />
-
-<p class="caption">
-
-Power versus efficiency of GARP test
-
-</p>
-
-</div>
-
-As depicted in the Figure above, the power of the GARP test increases
+As depicted in the figure above, the power of the GARP test increases
 with the efficiency level. This is expected as the lower is the
 efficiency level, the weaker is the test. In other words, with lower
 values of efficiency, a larger fraction of the simulated data will be
