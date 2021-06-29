@@ -174,9 +174,9 @@ result
 
 We see that the data set is inconsistent with both SARP and WARP
 conditions. All the three tests revealed that our data set failed to
-satify the rationality hypothesis. However, these tests did not indicate
-how close our data set was to satisfying the axioms. In the next step,
-we compute goodness-of-fit indices to measure the severity of
+satisfy the rationality hypothesis. However, these tests did not
+indicate how close our data set was to satisfying the axioms. In the
+next step, we compute goodness-of-fit indices to measure the severity of
 violations.
 
 **Goodness-of-fit**
@@ -244,10 +244,10 @@ Bronars’ power index for the given data set.
 # Compute power 
 result <- bronars(p, q)
 result
-#> [1] 0.836
+#> [1] 0.852
 ```
 
-We find that for the given budget conditions, there is about 83.60%
+We find that for the given budget conditions, there is about 85.20%
 probability of detecting an irrational behavior. As discussed above,
 here we have used Becker’s (1962) approach of using uniformly random
 consumption choices to simulate irrational consumer. As a final
