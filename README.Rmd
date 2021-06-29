@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # revpref
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.com/ksurana21/revpref.svg?branch=master)](https://travis-ci.com/ksurana21/revpref)
 <!-- badges: end -->
 
 The goal of `revpref` is to provide a set of tools to test whether consumer demand data satisfy a number of revealed preference axioms; compute measures of goodness-of-fit when the data is inconsistent with the axioms; and compute power against uniformly random behavior. Below we provide a brief description of the functions provided in this package.

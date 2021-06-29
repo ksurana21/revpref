@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Travis build
+status](https://travis-ci.com/ksurana21/revpref.svg?branch=master)](https://travis-ci.com/ksurana21/revpref)
 <!-- badges: end -->
 
 The goal of `revpref` is to provide a set of tools to test whether
@@ -242,10 +244,10 @@ Bronars’ power index for the given data set.
 # Compute power 
 result <- bronars(p, q)
 result
-#> [1] 0.866
+#> [1] 0.836
 ```
 
-We find that for the given budget conditions, there is about 86.60%
+We find that for the given budget conditions, there is about 83.60%
 probability of detecting an irrational behavior. As discussed above,
 here we have used Becker’s (1962) approach of using uniformly random
 consumption choices to simulate irrational consumer. As a final
