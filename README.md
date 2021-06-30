@@ -10,14 +10,14 @@ status](https://travis-ci.com/ksurana21/revpref.svg?branch=master)](https://trav
 <!-- badges: end -->
 
 The goal of `revpref` is to provide a set of tools to test whether
-consumer demand data satisfies a number of revealed preference axioms;
+consumer demand data satisfies a number of revealed preference axioms,
 compute measures of goodness-of-fit when the data is inconsistent with
-the axioms; and compute power against uniformly random behavior. Below
+the axioms, and compute power against uniformly random behavior. Below
 we provide a brief description of the functions provided in this
 package.
 
-  - Nonparametric tests to check consistency of the data with revealed
-    preference axioms at any efficiency level
+  - Nonparametric tests to check the consistency of the data with
+    revealed preference axioms at any efficiency level
     
       - `warp` tests consistency with the Weak Axiom of Revealed
         Preference at efficiency level e and reports the number of WARP
@@ -32,8 +32,8 @@ package.
         violations.
     
       - Note: for all the three functions described above (`warp`,
-        `sarp` and `garp`), the user must provide a T X N price matrix
-        and a T X N quantity matrix were T corresponds to the number of
+        `sarp`, and `garp`), the user must provide a T X N price matrix
+        and a T X N quantity matrix where T corresponds to the number of
         observations and N corresponds to the number of consumption
         categories. Optionally, the user can also provide an efficiency
         level (e) to check whether the observed data obeys a given axiom
@@ -47,10 +47,10 @@ package.
         of the efficiency level at which the data satisfies GARP.
         Intuitively, the CCEI indicates how close the data is to
         satisfying the (strict) GARP conditions. The user needs to
-        provide a T X N price matrix and a T X N quantity matrix were T
+        provide a T X N price matrix and a T X N quantity matrix where T
         corresponds to the number of observations and N corresponds to
         the number of consumption categories. Optionally, the user can
-        specify the axiom (WARP, SARP or GARP) for which the CCEI needs
+        specify the axiom (WARP, SARP, or GARP) for which the CCEI needs
         to be computed. When no axiom is specified, the function takes
         the default option as GARP.
     
@@ -60,11 +60,11 @@ package.
         amount of money that an arbitrageur can “pump” from an
         irrational consumer. While the MPI concept is conceptually
         appealing, it may be computationally challenging to compute this
-        index for data sets with large number of observations. In
+        index for data sets with a large number of observations. In
         particular, Smeulders et al. (2013) showed that computing mean
         and median MPI is an NP-hard problem. As easy-to-apply
         alternatives, Smeulders et al. (2013) proposed the minimum and
-        maximum MPIs which can be computed efficiency (in polynomial
+        maximum MPIs which can be computed efficiently (in polynomial
         time). The function `mpi` implements the algorithm provided by
         these authors to compute the minimum and maximum MPI values for
         the given data.
@@ -75,8 +75,8 @@ package.
       - `bronars` computes the power index proposed by Bronars (1987).
         The Bronars power index is defined as the probability of
         rejecting a given rationality axiom given that the data is
-        defined by an irrational behavior. Bronars suggest Becker’s
-        (1962) approach for simulating an irrational behavior. More
+        defined by irrational behavior. Bronars suggest Becker’s (1962)
+        approach for simulating an irrational behavior. More
         specifically, we simulate irrational demand by generating
         consumption choices that are uniformly distributed on the budget
         hyperplane. The function `bronars` computes the Bronars power
@@ -245,13 +245,13 @@ Bronars power index for the given data set.
 # Compute power 
 result <- bronars(p, q)
 result
-#> [1] 0.855
+#> [1] 0.839
 ```
 
-We find that for the given budget conditions, there is about 85.50%
+We find that for the given budget conditions, there is about 83.90%
 probability of detecting an irrational behavior. As discussed above,
 here we have used Becker’s (1962) approach of using uniformly random
-consumption choices to simulate irrational consumer. As a final
+consumption choices to simulate irrational consumers. As a final
 exercise, we analyze how the power of our GARP test changes with
 efficiency level.
 
