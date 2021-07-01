@@ -2,8 +2,8 @@
 #'
 #' This function checks consistency of a given data set with the Strong Axiom of Revealed Preference
 #' at efficiency level \eqn{e} (\code{e}SARP) and computes the number of \eqn{e}SARP violations.
-#' We say that a data set satisfies SARP at efficiency level \eqn{e} if \eqn{q_t R_e q_s} implies \eqn{ep_s'q_s < p_s'q_t}.
-#' It is clear that by setting \eqn{e = 1}, we obtain the standard version of SARP.
+#' We say that a data set satisfies SARP at efficiency level \eqn{e} if \eqn{q_t R_e q_s} implies \eqn{ep_s'q_s < p_s'q_t}
+#' (see the definition of R_e below). It is clear that by setting \eqn{e = 1}, we obtain the standard version of SARP.
 #' While if \eqn{e < 1}, we allow for some optimization error in the choices to make it consistent with SARP.
 #' The smaller the \eqn{e} is, the larger will be the optimization error allowed in the test.
 #' It is well known that the (strict) SARP is a necessary and sufficient condition for a data set to be rationalized

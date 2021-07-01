@@ -21,18 +21,18 @@ element (\code{maximum_MPI}) is the maximum MPI.
 }
 \description{
 The nonparametric tests of rationality axioms (\code{\link{garp}, \link{sarp} and \link{warp}}) are "sharp" in nature.
-This means that the tests will only tell us whether or not the observed data is consistent with a given axiom.
+This means that the tests will only tell us whether or not the observed data set is consistent with a given axiom.
 When the data set fails to satisfy the axiom, it is often useful to know how close the observed behavior is to satisfying
 the rationality restrictions (see Varian (1990) for an extensive motivation). Over the years, several measures (called
-goodness-of-fit indices) have been introduced to evaluate the degree to which the observed data is consistent with the
-rationality axiom. Echenique et al. (2011) proposed the money pump index (MPI) as a measure of severity of violations.
+goodness-of-fit indices) have been introduced to evaluate the degree to which the observed data set is consistent with the
+rationality axiom. Echenique et al. (2011) proposed the money pump index (MPI) as a measure of the severity of violations.
 The MPI is defined as the fraction of budget that an arbitrageur can pump from the irrational consumer. The higher is
 the MPI value, the more severe is the violation of rationality. While the MPI concept is conceptually appealing, it may
-be computationally challenging to compute this index for data sets with large number of observations. In particular,
-Smeulders et al. (2013) showed that computing mean and median MPI is an NP-hard problem. As easy-to-apply
-alternatives, they proposed the use of minimum and maximum MPI which can be computed efficiency (in polynomial time). This
-function implements the algorithm provided by these authors to measure the minimum and maximum MPI values for the given
-data.
+be computationally challenging to compute this index for data sets with a large number of observations. In particular,
+Smeulders et al. (2013) showed that computing the mean and median MPI is an NP-hard problem. As easy-to-apply
+alternatives, they proposed the use of minimum and maximum MPI which can be computed efficiently (in polynomial time).
+This function implements the algorithm provided by these authors to measure the minimum and maximum MPI values for the
+given data set.
 }
 \section{References}{
 

@@ -1,14 +1,13 @@
 #' Tests consistency with the Weak Axiom of Revealed Preference at efficiency \eqn{e}
 #'
-#' This function allows the user to check whether a given data set is consistent with the Weak Axiom of Revealed Preference
-#' at efficiency level \eqn{e} (\eqn{e}WARP) and computes the number of \eqn{e}WARP violations.
-#' We say that a data set satisfies WARP at efficiency level \eqn{e} if \eqn{q_t R^D_e q_s}
-#' and \eqn{q_t \neq q_s} implies  \eqn{ep_s'q_s < p_s'q_t}.
-#' The (strict) WARP restrictions with \eqn{e = 1} is a necessary and sufficient condition for a data set
-#' to be rationalized by a continuous, strictly increasing, piecewise strictly concave, and skew-symmetric
-#' preference function (see Aguiar et al. (2020)). Moreover, Rose (1958) showed that for the case of two goods
-#' (\eqn{N = 2}), WARP is equivalent to the Strong Axiom of Revealed Preference (SARP).
-#' In other words, when there are only two consumption categories, transitivity has no empirical bite.
+#' This function allows the user to check whether a given data set is consistent with the Weak Axiom of Revealed
+#' Preference at efficiency level \eqn{e} (\eqn{e}WARP) and computes the number of \eqn{e}WARP violations.
+#' We say that a data set satisfies WARP at efficiency level \eqn{e} if \eqn{q_t R^D_e q_s} and \eqn{q_t \neq q_s}
+#' implies \eqn{ep_s'q_s < p_s'q_t} (see the definition of R^D_e below). The (strict) WARP restrictions with \eqn{e = 1} is a necessary and sufficient
+#' condition for a data set to be rationalizable by a continuous, strictly increasing, piecewise strictly concave,
+#' and skew-symmetric preference function (see Aguiar et al. (2020)). Moreover, Rose (1958) showed that for the case
+#' of two goods (\eqn{N = 2}), WARP is equivalent to the Strong Axiom of Revealed Preference (SARP). In other words,
+#' when there are only two consumption categories, transitivity has no empirical bite.
 #'
 #' @param p A \eqn{T \times N} matrix of observed prices where each row corresponds to an observation
 #' and each column corresponds to a consumption category. \eqn{T} is the number of observations

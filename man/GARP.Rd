@@ -28,8 +28,8 @@ consistent \code{nviol} is 0.
 }
 \description{
 This function checks consistency of a given data set with the Generalized Axiom of Revealed Preference
-at efficiency \eqn{e} (\code{e}GARP) and computes the number of \eqn{e}GARP violations.
-We say that a data set satisfies GARP at efficiency level \eqn{e} if \eqn{q_t R_e q_s} implies \eqn{ep_s'q_s \le p_s'q_t}.
+at efficiency \eqn{e} (\code{e}GARP) and computes the number of \eqn{e}GARP violations. We say that a data set
+satisfies GARP at efficiency level \eqn{e} if \eqn{q_t R_e q_s} implies \eqn{ep_s'q_s \le p_s'q_t}.
 It is clear that by setting \eqn{e = 1}, we obtain the standard version of GARP as defined in Varian (1982).
 While if \eqn{e < 1}, we allow for some optimization error in the choices to make it consistent with GARP.
 The smaller the \eqn{e} is, the larger will be the optimization error allowed in the test.

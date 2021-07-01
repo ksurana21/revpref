@@ -1,14 +1,15 @@
 #' Computes the critical cost efficiency index
 #'
 #' The nonparametric tests of rationality axioms (\code{\link{garp}, \link{sarp} and \link{warp}}) are "sharp" in nature.
-#' This means that the tests will only tell us whether or not the observed data is consistent with a given axiom.
+#' This means that the tests will only tell us whether or not the observed data set is consistent with a given axiom.
 #' When the data set fails to satisfy the axiom, it is often useful to know how close the observed behavior is to
 #' satisfying the rationality restrictions (see Varian (1990) for an extensive motivation). Over the years, several
-#' measures (called goodness-of-fit indices) have been introduced to evaluate the degree to which data set is consistent
-#' with the rationality axiom. The most popular goodness-of-fit index is the Critical Cost Efficiency Index;
-#' CCEI (also known the Afriat Efficiency Index; AEI) proposed by Afriat (1973). Intuitively, CCEI captures the minimal
-#' adjustment in household expenditures needed such that the data obeys the rationality axiom. This function computes
-#' CCEI following the binary search algorithm described in Varian (1990).
+#' measures (called goodness-of-fit indices) have been introduced to evaluate the degree to which the data set is consistent
+#' with the rationality axiom(s). The most popular goodness-of-fit index is the Critical Cost Efficiency Index;
+#' CCEI (also known the Afriat Efficiency Index; AEI) proposed by Afriat (1973). The CCEI is defined as the maximal value
+#' of \eqn{e} such that the data set is consistent with the rationality axiom. Intuitively, it captures the minimal
+#' adjustment in household expenditures that is needed such that the data obey the rationality axiom. This function
+#' computes the CCEI following the binary search algorithm described in Varian (1990).
 #'
 #'
 #' @param p A \eqn{T X N} matrix of observed prices where each row corresponds to an observation
@@ -22,9 +23,9 @@
 #' @param model Specifies which axiom (GARP, SARP or WARP) should be used to compute the CCEI. The default value
 #' is "GARP" which computes the usual CCEI (also known as the Afriat efficiency index, AEI) proposed by Afriat (1973).
 #'
-#' @return The function returns \eqn{e^*} which is the highest efficiency level at which the data satisfies the
+#' @return The function returns \eqn{e^*} which is the highest efficiency level at which the data satisfy the
 #' given axiom. For instance, if the given model is "GARP", the function returns the maximal value of the efficiency
-#' level \eqn{e} such that the data satisfies \eqn{e}GARP.
+#' level \eqn{e} such that the data satisfy \eqn{e}GARP.
 #'
 #' @section References:
 #' \itemize{
