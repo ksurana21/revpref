@@ -1,6 +1,6 @@
 #' Tests consistency with the Weak Axiom of Revealed Preference at efficiency \eqn{e}
 #'
-#' This function checks consistency of a given data set with the Weak Axiom of Revealed Preference
+#' This function allows the user to check whether a given data set is consistent with the Weak Axiom of Revealed Preference
 #' at efficiency level \eqn{e} (\eqn{e}WARP) and computes the number of \eqn{e}WARP violations.
 #' We say that a data set satisfies WARP at efficiency level \eqn{e} if \eqn{q_t R^D_e q_s}
 #' and \eqn{q_t \neq q_s} implies  \eqn{ep_s'q_s < p_s'q_t}.
