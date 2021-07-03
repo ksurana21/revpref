@@ -9,15 +9,15 @@
 status](https://travis-ci.com/ksurana21/revpref.svg?branch=master)](https://travis-ci.com/ksurana21/revpref)
 <!-- badges: end -->
 
-The goal of `revpref` is to provide a set of tools to (i) test
-consistency of the consumer data with a number of revealed preference
-axioms at a given efficiency level, (ii) compute goodness-of-fit indices
-when the data do not obey the axioms, and (iii) compute power against
-uniformly random behavior. Below we provide a brief description of the
-functions provided in this package.
+The goal of `revpref` is to provide a set of tools to (i) check
+consistency of a finite set of consumer demand observations with a
+number of revealed preference axioms at a given efficiency level, (ii)
+compute goodness-of-fit indices when the data do not obey the axioms,
+and (iii) compute power against uniformly random behavior. Below we
+provide a brief description of the functions provided in this package.
 
-  - Nonparametric tests to check consistency of the data with revealed
-    preference axioms at any efficiency level
+  - Nonparametric tests to check whether the data set is consistent with
+    the revealed preference axioms at any efficiency level
     
       - `warp` tests consistency with the Weak Axiom of Revealed
         Preference (WARP) at efficiency level e and reports the number
@@ -36,18 +36,22 @@ functions provided in this package.
         and a T X N quantity matrix where T corresponds to the number of
         observations and N corresponds to the number of consumption
         categories. Further, all prices are required to be strictly
-        positive. Optionally, the user can also provide the efficiency
-        level (e) to check whether the observed data obey the axiom(s)
-        at efficiency level e. When e is not specified, it defaults to 1
-        which checks consistency with the exact axiom(s).
+        positive. Optionally, the efficiency level (e) at which the user
+        would like to test consistency with the axiom(s) can also be
+        provided. When e is not specified, it defaults to 1, which
+        checks consistency with the exact axiom(s).
+    
+      - For a comprehensive overview to the theory of revealed
+        preferences, see Varian (2006) and Cherchye et al. (2009).
 
   - Goodness-of-fit to measure the severity of violations
     
       - `ccei` computes the critical cost efficiency index, CCEI (also
-        known as the Afriat efficiency index). CCEI is the maximal value
-        of the efficiency level at which the data satisfies GARP.
-        Intuitively, the CCEI indicates how close the data is to
-        satisfying the (strict) GARP conditions. The user needs to
+        known as the Afriat efficiency index). The CCEI is defined as
+        the maximal value of the efficiency level e such that the data
+        set is consistent with (e)GARP. Intuitively, this measure
+        indicates the degree to which the set of demand observations is
+        consistent with the (strict) GARP conditions. The user needs to
         provide a T X N price matrix and a T X N quantity matrix where T
         corresponds to the number of observations and N corresponds to
         the number of consumption categories. Optionally, the user can
@@ -101,7 +105,7 @@ devtools::install_github("ksurana21/revpref")
 ## Example
 
 Below we provide some simple examples to illustrate the three types of
-functionality available within the package. To begin with we define the
+functionality available within the package. To begin with, we define the
 price and quantity matrices. Both of these matrices (defined below) have
 ten rows corresponding to the number of observations and three columns
 corresponding to the number of consumption categories.
@@ -139,25 +143,25 @@ result
 
 The first output is a binary indicator telling us whether or not the
 data set passed the rationality test. Here, we see that the first output
-is 0 which means that the data failed to satisfy the GARP restrictions.
-The second output indicates that there are 8 GARP violations. In this
-example, we did not specify the efficiency level, in which case the
-default value of 1 was applied. In the next example, we check GARP at
-90% efficiency.
+is 0 which means that the data set is inconsistent with GARP. The second
+output indicates that there are 8 GARP violations. In this example, we
+did not specify the efficiency level, in which case the default value of
+1 was applied. In the next example, we check GARP at the efficiency
+level e = 0.90.
 
 ``` r
 
-# Test consistency with GARP and compute the number of GARP violations at 90% efficiency
+# Test consistency with GARP and compute the number of violations at the efficiency level 0.90
 result <- garp(p, q, efficiency = 0.90)
 result
 #> [1] 1 0
 ```
 
-Here we see that the first output is 1 which means that the data passed
-the GARP test at 90% efficiency level. As expected, the second output is
-0 indicating that there are no GARP violations at this efficiency level.
-Next, we follow similar procedures to test consistency with SARP and
-WARP at full efficiency.
+Here we see that the first output is 1 which means that the data set is
+consistent with GARP at the efficiency level 0.90. As expected, the
+second output is 0 indicating that there are no GARP violations at this
+efficiency level. Next, we follow similar procedures to test consistency
+with SARP and WARP at full efficiency.
 
 ``` r
 
@@ -172,10 +176,10 @@ result
 #> [1] 0 1
 ```
 
-We see that the data set is inconsistent with both SARP and WARP
-conditions. All three tests revealed that our data set failed to satisfy
-the rationality axioms. However, these tests did not indicate how close
-our data set was to satisfying the strict axioms. In the next step, we
+We see that the data set is inconsistent with both SARP and WARP. All
+three tests revealed that our data set failed to satisfy the rationality
+axioms. However, these tests did not indicate how close this set of
+observations is to satisfying the strict axioms. In the next step, we
 compute goodness-of-fit indices to measure the severity of violations.
 
 **Goodness-of-fit**
@@ -183,10 +187,10 @@ compute goodness-of-fit indices to measure the severity of violations.
 The package provides functionalities for two goodness-of-fit measures.
 The first measure is the critical cost efficiency index (CCEI) which is
 defined as the maximal efficiency level at that the data set is
-consistent with rationality tests. From the previous exercises, we know
-that our data set failed to satisfy GARP at full efficiency but is
-consistent with GARP at 90% efficiency. As such, we expect the CCEI to
-be greater than 0.9 but less than 1.
+consistent with the rationality tests. From the previous exercises, we
+know that our data set failed to satisfy GARP at full efficiency but is
+consistent with GARP at the efficiency level 0.90. As such, we expect
+the CCEI to be greater than 0.90 but less than 1.
 
 ``` r
 
@@ -199,9 +203,9 @@ result
 Using the function `ccei`, we find that the highest efficiency level at
 which the data set is consistent with GARP is equal to 0.9488. This
 indicates that although our data set is inconsistent with the strict
-GARP restrictions, it is very close to satisfying it. We can also
-compute the CCEI for SARP and WARP by providing an additional argument
-(model = “SARP” or model = “WARP”).
+GARP, it is very close to satisfying it. We can also compute the CCEI
+for SARP and WARP by providing an additional argument (model = “SARP” or
+model = “WARP”).
 
 ``` r
 
@@ -225,10 +229,10 @@ result
 
 The output tells us that the minimum and maximum MPI for this data set
 are 0.07243 and 0.1873, respectively. This means that the consumer is
-losing 7.24% of money in the least severe violation and 18.73% of money
-in the most severe violation. Implicitly, these values provide a bound
-on the amounts of money that can be pumped from this irrational
-consumer.
+losing 7.24% of the budget in the least severe violation and 18.73% of
+the budget in the most severe violation. Implicitly, these values
+provide a bound on the amounts of money that can be pumped from this
+irrational consumer.
 
 **Power**
 
@@ -243,14 +247,15 @@ Bronars power index for the given data set.
 # Compute power 
 result <- bronars(p, q)
 result
-#> [1] 0.867
+#> [1] 0.858
 ```
 
-We find that for the given budget conditions, there is about 86.70%
+We find that for the given budget conditions, there is about 85.80%
 probability of detecting irrational behavior. As discussed above, here
-we have used Becker’s (1962) idea of using uniformly random consumption
-choices to simulate irrational consumers. As a final exercise, we
-analyze how the power of our GARP test changes with efficiency level.
+we have followed Becker’s (1962) approach of using uniformly random
+consumption choices to simulate irrational consumers. As a final
+exercise, we analyze how the power of the GARP test changes with the
+efficiency level.
 
 ``` r
 
@@ -285,6 +290,11 @@ smaller.
     maximization.” Econometrica: Journal of the Econometric Society
     (1987): 693-698.
 
+  - Cherchye, Laurens, Ian Crawford, Bram De Rock, and Frederic
+    Vermeulen. “The revealed preference approach to demand.” In
+    Quantifying Consumer Preferences. Emerald Group Publishing Limited,
+    2009.
+
   - Echenique, Federico, Sangmok Lee, and Matthew Shum. “The money pump
     as a measure of revealed preference violations.” Journal of
     Political Economy 119, no. 6 (2011): 1201-1223.
@@ -293,3 +303,6 @@ smaller.
     Rock. “The money pump as a measure of revealed preference
     violations: A comment.” Journal of Political Economy 121, no. 6
     (2013): 1248-1258.
+
+  - Varian, Hal R. “Revealed preference.” Samuelsonian economics and the
+    twenty-first century (2006): 99-115.

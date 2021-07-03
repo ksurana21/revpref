@@ -24,8 +24,8 @@ given axiom. For instance, if the given model is "GARP", the function returns th
 level \eqn{e} such that the data satisfy \eqn{e}GARP.
 }
 \description{
-The nonparametric tests of rationality axioms (\code{\link{garp}, \link{sarp} and \link{warp}}) are "sharp" in nature.
-This means that the tests will only tell us whether or not the observed data set is consistent with a given axiom.
+The nonparametric tests of rationality axioms (\code{\link{garp}, \link{sarp}, and \link{warp}}) are "sharp" in nature.
+This means that the tests will only tell us whether or not the observed data set is consistent with the axioms.
 When the data set fails to satisfy the axiom, it is often useful to know how close the observed behavior is to
 satisfying the rationality restrictions (see Varian (1990) for an extensive motivation). Over the years, several
 measures (called goodness-of-fit indices) have been introduced to evaluate the degree to which the data set is consistent

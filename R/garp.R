@@ -6,7 +6,7 @@
 #' It is clear that by setting \eqn{e = 1}, we obtain the standard version of GARP as defined in Varian (1982).
 #' While if \eqn{e < 1}, we allow for some optimization error in the choices to make it consistent with GARP.
 #' The smaller the \eqn{e} is, the larger will be the optimization error allowed in the test.
-#' It is well known that (strict) GARP is a necessary and sufficient condition for a data set to be rationalized
+#' It is well known that GARP is a necessary and sufficient condition for a data set to be rationalized
 #' by a continuous, strictly increasing, and concave preference function (see Afriat (1967) and Varian (1982)).
 #'
 #' @param p A \eqn{T X N} matrix of observed prices where each row corresponds to an observation
@@ -18,14 +18,14 @@
 #' and \eqn{N} is the number of consumption categories.
 #'
 #' @param efficiency The efficiency level \eqn{e}, is a real number between 0 and 1, which allows for a
-#' small margin of error when checking for consistency. The default value is 1 which corresponds to the
-#' test of consistency with strict GARP conditions.
+#' small margin of error when checking for consistency with the axiom. The default value is 1, which corresponds to the
+#' test of consistency with the strict GARP.
 #'
-#' @return The function returns two elements. The first element \code{passgarp} is a binary indicator for
-#' consistency of the data set with GARP at efficiency level \eqn{e}. It takes a value 1 if the data set
-#' is \eqn{e}GARP consistent and a value 0 if the data set is \eqn{e}GARP inconsistent.
-#' The second element \code{nviol} reports the number of \eqn{e}GARP violations. If the data set is \eqn{e}GARP
-#' consistent \code{nviol} is 0.
+#' @return The function returns two elements. The first element (\code{passgarp}) is a binary indicator telling us whether
+#' the data set is consistent with GARP at efficiency level \eqn{e}. It takes a value 1 if the data set is \eqn{e}GARP
+#' consistent and a value 0 if the data set is \eqn{e}GARP inconsistent. The second element (\code{nviol}) reports the
+#' number of \eqn{e}GARP violations. If the data set is \eqn{e}GARP consistent \code{nviol} is 0. Note that the maximum
+#' number of violations in a \eqn{e}GARP inconsistent data is \eqn{T(T-1)}.
 #'
 #'
 #' @section Definitions:
@@ -68,7 +68,7 @@
 #' # Test consistency with GARP and compute the number of GARP violations
 #' garp(p,q)
 #'
-#' # Test consistency with GARP at efficiency level 0.95 and compute the number of GARP violations
+#' # Test consistency with GARP and compute the number of GARP violations at e = 0.95
 #' garp(p,q, efficiency = 0.95)
 #'
 #' @seealso \code{\link{sarp}} for the Strong Axiom of Revealed Preference and \code{\link{warp}} for
