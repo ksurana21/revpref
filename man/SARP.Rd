@@ -17,22 +17,22 @@ and \eqn{N} is the number of consumption categories.}
 
 \item{efficiency}{The efficiency level \eqn{e}, is a real number between 0 and 1, which allows for a
 small margin of error when checking for consistency with the axiom. The default value is 1, which corresponds to the
-test of consistency with the strict SARP.}
+test of consistency with the exact SARP.}
 }
 \value{
 The function returns two elements. The first element (\code{passsarp}) is a binary indicator telling us whether
 the data set is consistent with SARP at a given efficiency level \eqn{e}. It takes a value 1 if the data set
 is \eqn{e}SARP consistent and a value 0 if the data set is \eqn{e}SARP inconsistent.
 The second element (\code{nviol}) reports the number of \eqn{e}SARP violations. If the data is \eqn{e}SARP
-consistent \code{nviol} is 0. Note that the maximum number of violations in a \eqn{e}SARP inconsistent data is
+consistent, \code{nviol} is 0. Note that the maximum number of violations in a \eqn{e}SARP inconsistent data is
 \eqn{T(T-1)}.
 }
 \description{
 This function checks consistency of a given data set with the Strong Axiom of Revealed Preference
-at efficiency level \eqn{e} (\code{e}SARP) and computes the number of \eqn{e}SARP violations.
+at efficiency level \eqn{e} (\eqn{e}SARP) and computes the number of \eqn{e}SARP violations.
 We say that a data set satisfies SARP at efficiency level \eqn{e} if \eqn{q_t R_e q_s} implies \eqn{ep_s'q_s < p_s'q_t}
 (see the definition of \eqn{R_e} below). It is clear that by setting \eqn{e = 1}, we obtain the standard version of SARP.
-While if \eqn{e < 1}, we allow for some optimization error in the choices to make it consistent with SARP.
+While if \eqn{e < 1}, we allow for some optimization error in the choices to make the data set consistent with SARP.
 The smaller the \eqn{e} is, the larger will be the optimization error allowed in the test.
 It is well known that SARP is a necessary and sufficient condition for a data set to be rationalized
 by a continuous, strictly increasing, and strictly concave preference function (see Matzkin and Richter (1991)).

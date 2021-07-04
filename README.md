@@ -36,12 +36,12 @@ provide a brief description of the functions provided in this package.
         and a T X N quantity matrix where T corresponds to the number of
         observations and N corresponds to the number of consumption
         categories. Further, all prices are required to be strictly
-        positive. Optionally, the efficiency level (e) at which the user
+        positive. Optionally, the efficiency level e at which the user
         would like to test consistency with the axiom(s) can also be
         provided. When e is not specified, it defaults to 1, which
         checks consistency with the exact axiom(s).
     
-      - For a comprehensive overview to the theory of revealed
+      - For a comprehensive overview of the theory of revealed
         preferences, see Varian (2006) and Cherchye et al. (2009).
 
   - Goodness-of-fit to measure the severity of violations
@@ -49,23 +49,23 @@ provide a brief description of the functions provided in this package.
       - `ccei` computes the critical cost efficiency index, CCEI (also
         known as the Afriat efficiency index). The CCEI is defined as
         the maximal value of the efficiency level e such that the data
-        set is consistent with (e)GARP. Intuitively, this measure
-        indicates the degree to which the set of demand observations is
-        consistent with the (strict) GARP conditions. The user needs to
-        provide a T X N price matrix and a T X N quantity matrix where T
-        corresponds to the number of observations and N corresponds to
-        the number of consumption categories. Optionally, the user can
-        specify the axiom (WARP, SARP, or GARP) for which the CCEI needs
-        to be computed. When no axiom is specified, the function takes
-        the default option as GARP.
+        set is consistent with GARP. Intuitively, this measure indicates
+        the degree to which the set of demand observations is consistent
+        with GARP. The user needs to provide a T X N price matrix and a
+        T X N quantity matrix where T corresponds to the number of
+        observations and N corresponds to the number of consumption
+        categories. Optionally, the user can specify the axiom (WARP,
+        SARP, or GARP) for which the CCEI needs to be computed. When no
+        axiom is specified, the function takes the default option as
+        GARP.
     
       - `mpi` computes the minimum and maximum money pump index (MPI).
         Echenique et al. (2011) proposed the money pump index as a
         measure of the severity of GARP violation. It is defined as the
-        amount of money that an arbitrageur can “pump” from an
-        irrational consumer. While the MPI concept is conceptually
-        appealing, it may be computationally challenging to compute for
-        data sets with a large number of observations. In particular,
+        amount of money that an arbitrageur can “pump” from a consumer.
+        While the MPI measure is conceptually appealing, it may be
+        computationally challenging to determine this index for data
+        sets with a large number of observations. In particular,
         Smeulders et al. (2013) showed that computing the mean and
         median MPI is an NP-hard problem. As easy-to-apply alternatives,
         Smeulders et al. (2013) proposed the minimum and maximum MPIs
@@ -77,7 +77,7 @@ provide a brief description of the functions provided in this package.
   - Power of the revealed preference tests
     
       - `bronars` computes the Bronars power index which is defined as
-        the probability of rejecting a given rationality axiom given
+        the probability of rejecting a given rationality axiom provided
         that the data is defined by irrational behavior (Bronars
         (1987)). Bronars suggested Becker’s (1962) notion of irrational
         behavior as the alternative hypothesis. More specifically, we
@@ -130,8 +130,8 @@ q = matrix(c( 01.81, 00.19, 10.51, 17.28, 02.26, 04.13, 12.33, 02.05, 02.99, 06.
 
 **Nonparametric tests**
 
-First, we check whether or not the data violate the rationality axioms.
-We begin with GARP.
+First, we check whether the data violate the rationality axioms. We
+begin with GARP.
 
 ``` r
 
@@ -141,13 +141,13 @@ result
 #> [1] 0 8
 ```
 
-The first output is a binary indicator telling us whether or not the
-data set passed the rationality test. Here, we see that the first output
-is 0 which means that the data set is inconsistent with GARP. The second
-output indicates that there are 8 GARP violations. In this example, we
-did not specify the efficiency level, in which case the default value of
-1 was applied. In the next example, we check GARP at the efficiency
-level e = 0.90.
+The first output is a binary indicator telling us whether the data set
+passed the GARP test. Here, we see that the first output is 0 which
+means that the data set is inconsistent with GARP. The second output
+indicates that there are 8 GARP violations. In this example, we did not
+specify the efficiency level, in which case the default value of 1 was
+applied. In the next example, we check GARP at the efficiency level e =
+0.90.
 
 ``` r
 
@@ -177,19 +177,20 @@ result
 ```
 
 We see that the data set is inconsistent with both SARP and WARP. All
-three tests revealed that our data set failed to satisfy the rationality
-axioms. However, these tests did not indicate how close this set of
-observations is to satisfying the strict axioms. In the next step, we
-compute goodness-of-fit indices to measure the severity of violations.
+the three tests revealed that our data set failed to satisfy the
+rationality axioms. However, these tests did not indicate how close this
+set of observations is to satisfying the exact axioms. In the next step,
+we compute goodness-of-fit indices to measure the severity of
+violations.
 
 **Goodness-of-fit**
 
 The package provides functionalities for two goodness-of-fit measures.
 The first measure is the critical cost efficiency index (CCEI) which is
-defined as the maximal efficiency level at that the data set is
-consistent with the rationality tests. From the previous exercises, we
-know that our data set failed to satisfy GARP at full efficiency but is
-consistent with GARP at the efficiency level 0.90. As such, we expect
+defined as the maximal efficiency level at which the data set is
+consistent with the rationality axiom(s). From the previous exercises,
+we know that our data set failed to satisfy GARP at full efficiency but
+is consistent with GARP at the efficiency level 0.90. As such, we expect
 the CCEI to be greater than 0.90 but less than 1.
 
 ``` r
@@ -202,7 +203,7 @@ result
 
 Using the function `ccei`, we find that the highest efficiency level at
 which the data set is consistent with GARP is equal to 0.9488. This
-indicates that although our data set is inconsistent with the strict
+indicates that although our data set is inconsistent with the exact
 GARP, it is very close to satisfying it. We can also compute the CCEI
 for SARP and WARP by providing an additional argument (model = “SARP” or
 model = “WARP”).
@@ -227,12 +228,12 @@ result
 #> [1] 0.07242757 0.18732824
 ```
 
-The output tells us that the minimum and maximum MPI for this data set
+The output tells us that the minimum and maximum MPIs for this data set
 are 0.07243 and 0.1873, respectively. This means that the consumer is
 losing 7.24% of the budget in the least severe violation and 18.73% of
 the budget in the most severe violation. Implicitly, these values
 provide a bound on the amounts of money that can be pumped from this
-irrational consumer.
+consumer.
 
 **Power**
 
@@ -277,9 +278,8 @@ plot(power, type = "b",col = "black", lwd = 1, pch = 20, bty = "L")
 As depicted in the figure above, the power of the GARP test increases
 with the efficiency level. This is expected as the lower is the
 efficiency level, the weaker is the test. In other words, with lower
-values of efficiency, a larger fraction of the simulated data will be
-able to pass the test and hence the chances of rejecting GARP is
-smaller.
+values of efficiency, a larger fraction of the simulated data is able to
+pass the test and hence the chances of rejecting GARP is smaller.
 
 ## References
 

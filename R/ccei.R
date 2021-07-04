@@ -1,15 +1,16 @@
 #' Computes the critical cost efficiency index
 #'
-#' The nonparametric tests of rationality axioms (\code{\link{garp}, \link{sarp}, and \link{warp}}) are "sharp" in nature.
-#' This means that the tests will only tell us whether or not the observed data set is consistent with the axioms.
-#' When the data set fails to satisfy the axiom, it is often useful to know how close the observed behavior is to
+#' The nonparametric tests of rationality axioms (\code{\link{garp}, \link{sarp}}, and \code{\link{warp}}) are "sharp" in nature.
+#' This means that the tests will only tell us whether the observed data set passed the rationality axioms.
+#' However, when the data set fails, it is often useful to know how close the observed behavior is to
 #' satisfying the rationality restrictions (see Varian (1990) for an extensive motivation). Over the years, several
 #' measures (called goodness-of-fit indices) have been introduced to evaluate the degree to which the data set is consistent
 #' with the rationality axiom(s). The most popular goodness-of-fit index is the Critical Cost Efficiency Index;
-#' CCEI (also known the Afriat Efficiency Index; AEI) proposed by Afriat (1973). The CCEI is defined as the maximal value
-#' of \eqn{e} such that the data set is consistent with the rationality axiom. Intuitively, it captures the minimal
-#' adjustment in household expenditures that is needed such that the data obey the rationality axiom. This function
-#' computes the CCEI following the binary search algorithm described in Varian (1990).
+#' CCEI (also known the Afriat Efficiency Index; AEI) proposed by Afriat (1973). The CCEI is defined as the maximal value of
+#' the efficiency level \eqn{e} such that the data set is consistent with GARP. Intuitively, this measure indicates the degree
+#' to which the set of demand observations is consistent with GARP. This function computes the CCEI following the binary
+#' search algorithm described in Varian (1990). Optionally, the user can specify the axiom (WARP, SARP, or GARP) for which
+#' the CCEI needs to be computed. When no axiom is specified, the function takes the default option as GARP.
 #'
 #'
 #' @param p A \eqn{T X N} matrix of observed prices where each row corresponds to an observation

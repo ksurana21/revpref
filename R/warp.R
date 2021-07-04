@@ -3,7 +3,7 @@
 #' This function allows the user to check whether a given data set is consistent with the Weak Axiom of Revealed
 #' Preference at efficiency level \eqn{e} (\eqn{e}WARP) and computes the number of \eqn{e}WARP violations.
 #' We say that a data set satisfies WARP at efficiency level \eqn{e} if \eqn{q_t R^D_e q_s} and \eqn{q_t \neq q_s}
-#' implies \eqn{ep_s'q_s < p_s'q_t} (see the definition of R^D_e below). The (strict) WARP, with \eqn{e = 1}, is a necessary and sufficient
+#' implies \eqn{ep_s'q_s < p_s'q_t} (see the definition of R^D_e below). The exact WARP, with \eqn{e = 1}, is a necessary and sufficient
 #' condition for a data set to be rationalizable by a continuous, strictly increasing, piecewise strictly concave,
 #' and skew-symmetric preference function (see Aguiar et al. (2020)). Moreover, Rose (1958) showed that for the case
 #' of two goods (\eqn{N = 2}), WARP is equivalent to the Strong Axiom of Revealed Preference (SARP). In other words,
@@ -19,13 +19,13 @@
 #'
 #' @param efficiency The efficiency level \eqn{e}, is a real number between 0 and 1, which allows for a
 #' small margin of error when checking for consistency with the axiom. The default value is 1, which corresponds to the
-#' test of consistency with the strict WARP.
+#' test of consistency with the exact WARP.
 #'
 #' @return The function returns two elements. The first element (\code{passwarp}) is a binary indicator telling us
 #' whether the data set is consistent with WARP at a given efficiency level \eqn{e}. It takes a value 1 if the data set
 #' is \eqn{e}WARP consistent and a value 0 if the data set is \eqn{e}WARP inconsistent.
 #' The second element (\code{nviol}) reports the number of \eqn{e}WARP violations. If the data set is \eqn{e}WARP
-#' consistent \code{nviol} is 0. Note that the maximum number of violations in a \eqn{e}WARP inconsistent data is
+#' consistent, \code{nviol} is 0. Note that the maximum number of violations in a \eqn{e}WARP inconsistent data is
 #' \eqn{T(T-1)/2}.
 #'
 #' @section Definitions:
