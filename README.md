@@ -48,7 +48,7 @@ provide a brief description of the functions provided in this package.
     
       - `ccei` computes the critical cost efficiency index, CCEI (also
         known as the Afriat efficiency index). The CCEI is defined as
-        the maximal value of the efficiency level e such that the data
+        the maximal value of the efficiency level e at which the data
         set is consistent with GARP. Intuitively, this measure indicates
         the degree to which the set of demand observations is consistent
         with GARP. The user needs to provide a T X N price matrix and a
@@ -79,12 +79,13 @@ provide a brief description of the functions provided in this package.
       - `bronars` computes the Bronars power index which is defined as
         the probability of rejecting a given rationality axiom provided
         that the data is defined by irrational behavior (Bronars
-        (1987)). Bronars suggested Becker’s (1962) notion of irrational
-        behavior as the alternative hypothesis. More specifically, we
-        simulate irrational demand by generating consumption choices
-        that are uniformly distributed on the budget hyperplane. The
-        function `bronars` computes the Bronars power index for any of
-        the three axioms (WARP, SARP, or GARP) at any efficiency level.
+        (1987)). Following Bronars’ (1987) suggestion, we use Becker’s
+        (1962) notion of irrational behavior as the alternative
+        hypothesis. More specifically, we simulate irrational demand by
+        generating consumption choices that are uniformly distributed on
+        the budget hyperplane. The function `bronars` computes the
+        Bronars power index for any of the three axioms (WARP, SARP, or
+        GARP) at any efficiency level.
 
 ## Installation
 
@@ -158,7 +159,7 @@ result
 ```
 
 Here we see that the first output is 1 which means that the data set is
-consistent with GARP at the efficiency level 0.90. As expected, the
+consistent with GARP at the efficiency level e = 0.90. As expected, the
 second output is 0 indicating that there are no GARP violations at this
 efficiency level. Next, we follow similar procedures to test consistency
 with SARP and WARP at full efficiency.
@@ -248,10 +249,10 @@ Bronars power index for the given data set.
 # Compute power 
 result <- bronars(p, q)
 result
-#> [1] 0.858
+#> [1] 0.841
 ```
 
-We find that for the given budget conditions, there is about 85.80%
+We find that for the given budget conditions, there is about 84.10%
 probability of detecting irrational behavior. As discussed above, here
 we have followed Becker’s (1962) approach of using uniformly random
 consumption choices to simulate irrational consumers. As a final

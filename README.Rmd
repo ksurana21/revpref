@@ -35,13 +35,13 @@ The goal of `revpref` is to provide a set of tools to (i) check consistency of a
 
 - Goodness-of-fit to measure the severity of violations
 
-  * `ccei` computes the critical cost efficiency index, CCEI (also known as the Afriat efficiency index). The CCEI is defined as the maximal value of the efficiency level e such that the data set is consistent with GARP. Intuitively, this measure indicates the degree to which the set of demand observations is consistent with GARP. The user needs to provide a T X N price matrix and a T X N quantity matrix where T corresponds to the number of observations and N corresponds to the number of consumption categories. Optionally, the user can specify the axiom (WARP, SARP, or GARP) for which the CCEI needs to be computed. When no axiom is specified, the function takes the default option as GARP.
+  * `ccei` computes the critical cost efficiency index, CCEI (also known as the Afriat efficiency index). The CCEI is defined as the maximal value of the efficiency level e at which the data set is consistent with GARP. Intuitively, this measure indicates the degree to which the set of demand observations is consistent with GARP. The user needs to provide a T X N price matrix and a T X N quantity matrix where T corresponds to the number of observations and N corresponds to the number of consumption categories. Optionally, the user can specify the axiom (WARP, SARP, or GARP) for which the CCEI needs to be computed. When no axiom is specified, the function takes the default option as GARP.
   
   * `mpi` computes the minimum and maximum money pump index (MPI). Echenique et al. (2011) proposed the money pump index as a measure of the severity of GARP violation. It is defined as the amount of money that an arbitrageur can "pump" from a consumer. While the MPI measure is conceptually appealing, it may be computationally challenging to determine this index for data sets with a large number of observations. In particular, Smeulders et al. (2013) showed that computing the mean and median MPI is an NP-hard problem. As easy-to-apply alternatives, Smeulders et al. (2013) proposed the minimum and maximum MPIs which can be computed efficiently (in polynomial time). The function `mpi` implements the algorithm provided by these authors to compute the minimum and maximum MPI values for the given data. 
 
 - Power of the revealed preference tests
 
-  * `bronars` computes the Bronars power index which is defined as the probability of rejecting a given rationality axiom provided that the data is defined by irrational behavior (Bronars (1987)). Bronars suggested Becker's (1962) notion of irrational behavior as the alternative hypothesis. More specifically, we simulate irrational demand by generating consumption choices that are uniformly distributed on the budget hyperplane. The function `bronars` computes the Bronars power index for any of the three axioms (WARP, SARP, or GARP) at any efficiency level.
+  * `bronars` computes the Bronars power index which is defined as the probability of rejecting a given rationality axiom provided that the data is defined by irrational behavior (Bronars (1987)). Following Bronars' (1987) suggestion, we use Becker's (1962) notion of irrational behavior as the alternative hypothesis. More specifically, we simulate irrational demand by generating consumption choices that are uniformly distributed on the budget hyperplane. The function `bronars` computes the Bronars power index for any of the three axioms (WARP, SARP, or GARP) at any efficiency level.
 
 ## Installation
 
@@ -101,7 +101,7 @@ result
 
 ```
 
-Here we see that the first output is `r result[1]` which means that the data set is consistent with GARP at the efficiency level 0.90. As expected, the second output is `r result[2]` indicating that there are no GARP violations at this efficiency level. Next, we follow similar procedures to test consistency with SARP and WARP at full efficiency.
+Here we see that the first output is `r result[1]` which means that the data set is consistent with GARP at the efficiency level e = 0.90. As expected, the second output is `r result[2]` indicating that there are no GARP violations at this efficiency level. Next, we follow similar procedures to test consistency with SARP and WARP at full efficiency.
 
 
 ```{r}

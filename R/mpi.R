@@ -72,7 +72,7 @@ mpi <- function(p,q)
       }
     }
 
-    d <- graph_list(p_new,q_new,-1)                          ## d stores the graph corresponding to consumption data x
+    d <- graph_list(p_new,q_new,-1)                          ## d stores the graph corresponding to the consumption data
     if(cycle_detection_topo(d)== 0){return(c(0,0))}          ## if graph is acyclic, then there is no GARP violation
     minimum_MPI <- minimum_cost_time(d,-100000000,100000000)
 

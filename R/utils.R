@@ -1,10 +1,10 @@
 
 # The function "graph_list" creates an appropriate graph list given a data set of prices (p), quantities (q),
-# and a value (bound). Both price and quantity matrix are T X N matrices where T is the number of observations
-# and N is the number of goods. The parameter "bound" takes a value 1 if upper bound is to be computed and a
+# and a value (bound). Both the price and quantity matrices are T X N matrices where T is the number of observations
+# and N is the number of consumption categories. The parameter "bound" takes a value 1 if upper bound is to be computed and a
 # value -1 if lower bound is to be computed.
 # For each observation i in {1,2,..,T}, there is a list.
-# The list of i-th observation consists of list of 3-element vectors.
+# The list of the i-th observation consists of a list of 3-element vectors.
 # The first element stores all k such that q_i R_0 q_k.
 # The second element stores the weight of the edge (p_iq_k-p_iq_i) for lower bound and (p_iq_i - p_iq_k) for upper bound.
 # The third element stores the budget of the edge (p_iq_i).
@@ -77,7 +77,7 @@ graph_list <- function(p,q,bound)
 
 
 # The function "indegree" computes the number of incoming edges to each node of a given graph.
-# It takes a input "g" which is a graph list and returns a 1 X T matrix with in-degree of each node where
+# It takes as input "g" which is a graph list and returns a 1 X T matrix with in-degree of each node where
 # T is the number of observations.
 
 indegree <- function(g)
@@ -103,7 +103,7 @@ indegree <- function(g)
 # The function "bellmanford" computes shortest distance from a given node to all other nodes in a given Graph.
 # It takes as input "g" which is a graph list and "s" which is an indicator for the node from which shortest distance
 # is to be computed. The function returns -1 if the graph contains a negative cycle. Otherwise, it returns a 2 x N
-# matrix. The first row of the output matrix stores the shortest distance of the node i to node s. The second row of
+# matrix. The first row of the output matrix stores the shortest distance from node i to node s. The second row of
 # the output matrix stores the index of predecessor node in the shortest path.
 
 bellmanford <- function(g,s)
@@ -195,7 +195,7 @@ cycle_detection_topo <- function(Graph)
 
 # The function "minimum_cost_time" computes the minimum cost-to-time ratio of a graph.
 # It takes as input three elements. The first element "Graph" is a graph list, the second element "low" is a lower
-# bound for search value and the third parameter "high" is an upper bound for search value.
+# bound for the search value and the third parameter "high" is an upper bound for the search value.
 # If the graph is acyclic, the function returns 0. Otherwise, if the graph contains a cycle (GARP violation), it
 # return the optimal ratio of minimum cost time.
 
@@ -267,7 +267,7 @@ zero_residual_graph <- function(Graph,d)
 
 
 
-# The function "redefined_graph" is an auxiliary function used the function "minimum_cost_time".
+# The function "redefined_graph" is an auxiliary function used by the function "minimum_cost_time".
 # This function updates the weight of each edge of a given graph. It takes as input two elements. The first
 # element "Graph" is a graph list where each edge in the graph has a cost and time weights attached to it.
 # The second element "u" is a scalar to update the edges of the "Graph".
@@ -300,7 +300,7 @@ redefined_graph <- function(Graph,u)
 
 # "warshall" is an algorithm to compute indirect revealed preference relations (R). The function takes an input
 # "RO" which is a T X T matrix of direct revealed preference relations, where T is the number of observations.
-# It returns a T X T matrix of indirect revealed preference relations which is a transitive closure of "RO".
+# It returns a T X T matrix of indirect revealed preference relations which is the transitive closure of "RO".
 
 warshall <- function(RO)
 {
