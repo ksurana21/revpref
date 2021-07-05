@@ -62,10 +62,10 @@ provide a brief description of the functions provided in this package.
       - `mpi` computes the minimum and maximum money pump index (MPI).
         Echenique et al. (2011) proposed the money pump index as a
         measure of the severity of GARP violation. It is defined as the
-        amount of money that an arbitrageur can “pump” from a consumer.
-        While the MPI measure is conceptually appealing, it may be
-        computationally challenging to determine this index for data
-        sets with a large number of observations. In particular,
+        amount of money that an arbitrageur can “pump” from the
+        consumer. While the MPI measure is conceptually appealing, it
+        may be computationally challenging to determine this index for
+        data sets with a large number of observations. In particular,
         Smeulders et al. (2013) showed that computing the mean and
         median MPI is an NP-hard problem. As easy-to-apply alternatives,
         Smeulders et al. (2013) proposed the minimum and maximum MPIs
@@ -249,10 +249,10 @@ Bronars power index for the given data set.
 # Compute power 
 result <- bronars(p, q)
 result
-#> [1] 0.841
+#> [1] 0.844
 ```
 
-We find that for the given budget conditions, there is about 84.10%
+We find that for the given budget conditions, there is about 84.40%
 probability of detecting irrational behavior. As discussed above, here
 we have followed Becker’s (1962) approach of using uniformly random
 consumption choices to simulate irrational consumers. As a final

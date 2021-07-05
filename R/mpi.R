@@ -1,4 +1,4 @@
-#' Computes minimum and maximum money pump index
+#' Computes the minimum and maximum money pump index
 #'
 #' The nonparametric GARP test is "sharp" in nature. This means that the test will only tell us whether the observed data
 #' set is consistent with GARP. However, when the data set fails, it is often useful to know how close the observed behavior is to
