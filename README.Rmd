@@ -183,7 +183,7 @@ plot(power, type = "b",col = "black", lwd = 1, pch = 20, bty = "L")
 
 ```
 
-As depicted in the figure above, the power of the GARP test increases with the efficiency level. This is expected as the lower is the efficiency level, the weaker is the test. In other words, with lower values of efficiency, a larger fraction of the simulated data is able to pass the test and hence the likelihood of rejecting GARP is smaller.
+As depicted in the figure above, the power of the GARP test increases with the efficiency level. This is expected as the lower is the efficiency level, the weaker is the test. In other words, with lower values of efficiency, a larger fraction of the simulated data is able to pass the test and hence the probability of rejecting GARP is smaller.
 
 
 

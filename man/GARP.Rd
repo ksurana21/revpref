@@ -27,7 +27,7 @@ number of \eqn{e}GARP violations. If the data set is \eqn{e}GARP consistent, \co
 number of violations in an \eqn{e}GARP inconsistent data is \eqn{T(T-1)}.
 }
 \description{
-This function checks consistency of a given data set with the Generalized Axiom of Revealed Preference
+This function allows the user to check whether a given data set is consistent with the Generalized Axiom of Revealed Preference
 at efficiency \eqn{e} (\eqn{e}GARP) and computes the number of \eqn{e}GARP violations. We say that a data set
 satisfies GARP at efficiency level \eqn{e} if \eqn{q_t R_e q_s} implies \eqn{ep_s'q_s \le p_s'q_t}.
 It is clear that by setting \eqn{e = 1}, we obtain the standard version of GARP as defined in Varian (1982).
