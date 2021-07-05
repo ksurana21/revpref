@@ -2,7 +2,7 @@
 % Please edit documentation in R/bronars.R
 \name{bronars}
 \alias{bronars}
-\title{Computes power for a given axiom at a given efficiency level}
+\title{Computes the Bronars power index for a given axiom at a given efficiency level}
 \usage{
 bronars(p, q, simulation = 1000, model = "GARP", efficiency = 1)
 }

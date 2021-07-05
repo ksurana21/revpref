@@ -2,7 +2,7 @@
 % Please edit documentation in R/mpi.R
 \name{mpi}
 \alias{mpi}
-\title{Computes minimum and maximum money pump index}
+\title{Computes the minimum and maximum money pump index}
 \usage{
 mpi(p, q)
 }
