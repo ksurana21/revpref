@@ -1,6 +1,6 @@
 #' Tests consistency with the Generalized Axiom of Revealed Preference at efficiency \eqn{e}
 #'
-#' This function checks consistency of a given data set with the Generalized Axiom of Revealed Preference
+#' This function allows the user to check whether a given data set is consistent with the Generalized Axiom of Revealed Preference
 #' at efficiency \eqn{e} (\eqn{e}GARP) and computes the number of \eqn{e}GARP violations. We say that a data set
 #' satisfies GARP at efficiency level \eqn{e} if \eqn{q_t R_e q_s} implies \eqn{ep_s'q_s \le p_s'q_t}.
 #' It is clear that by setting \eqn{e = 1}, we obtain the standard version of GARP as defined in Varian (1982).
@@ -25,7 +25,7 @@
 #' the data set is consistent with GARP at efficiency level \eqn{e}. It takes a value 1 if the data set is \eqn{e}GARP
 #' consistent and a value 0 if the data set is \eqn{e}GARP inconsistent. The second element (\code{nviol}) reports the
 #' number of \eqn{e}GARP violations. If the data set is \eqn{e}GARP consistent, \code{nviol} is 0. Note that the maximum
-#' number of violations in a \eqn{e}GARP inconsistent data is \eqn{T(T-1)}.
+#' number of violations in an \eqn{e}GARP inconsistent data is \eqn{T(T-1)}.
 #'
 #'
 #' @section Definitions:

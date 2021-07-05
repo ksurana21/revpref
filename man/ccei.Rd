@@ -15,7 +15,7 @@ and \eqn{N} is the number of consumption categories.}
 and each column corresponds to a consumption category.\eqn{T} is the number of observations
 and \eqn{N} is the number of consumption categories.}
 
-\item{model}{Specifies which axiom (GARP, SARP or WARP) should be used to compute the CCEI. The default value
+\item{model}{Specifies which axiom (GARP, SARP, or WARP) should be used to compute the CCEI. The default value
 is "GARP" which computes the usual CCEI (also known as the Afriat efficiency index, AEI) proposed by Afriat (1973).}
 }
 \value{
@@ -30,7 +30,7 @@ However, when the data set fails, it is often useful to know how close the obser
 satisfying the rationality restrictions (see Varian (1990) for an extensive motivation). Over the years, several
 measures (called goodness-of-fit indices) have been introduced to evaluate the degree to which the data set is consistent
 with the rationality axiom(s). The most popular goodness-of-fit index is the Critical Cost Efficiency Index;
-CCEI (also known the Afriat Efficiency Index; AEI) proposed by Afriat (1973). The CCEI is defined as the maximal value of
+CCEI (also known as the Afriat Efficiency Index; AEI) proposed by Afriat (1973). The CCEI is defined as the maximal value of
 the efficiency level \eqn{e} such that the data set is consistent with GARP. Intuitively, this measure indicates the degree
 to which the set of demand observations is consistent with GARP. This function computes the CCEI following the binary
 search algorithm described in Varian (1990). Optionally, the user can specify the axiom (WARP, SARP, or GARP) for which

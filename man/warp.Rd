@@ -24,7 +24,7 @@ The function returns two elements. The first element (\code{passwarp}) is a bina
 whether the data set is consistent with WARP at a given efficiency level \eqn{e}. It takes a value 1 if the data set
 is \eqn{e}WARP consistent and a value 0 if the data set is \eqn{e}WARP inconsistent.
 The second element (\code{nviol}) reports the number of \eqn{e}WARP violations. If the data set is \eqn{e}WARP
-consistent, \code{nviol} is 0. Note that the maximum number of violations in a \eqn{e}WARP inconsistent data is
+consistent, \code{nviol} is 0. Note that the maximum number of violations in an \eqn{e}WARP inconsistent data is
 \eqn{T(T-1)/2}.
 }
 \description{

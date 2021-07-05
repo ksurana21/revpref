@@ -24,7 +24,7 @@ The function returns two elements. The first element (\code{passgarp}) is a bina
 the data set is consistent with GARP at efficiency level \eqn{e}. It takes a value 1 if the data set is \eqn{e}GARP
 consistent and a value 0 if the data set is \eqn{e}GARP inconsistent. The second element (\code{nviol}) reports the
 number of \eqn{e}GARP violations. If the data set is \eqn{e}GARP consistent, \code{nviol} is 0. Note that the maximum
-number of violations in a \eqn{e}GARP inconsistent data is \eqn{T(T-1)}.
+number of violations in an \eqn{e}GARP inconsistent data is \eqn{T(T-1)}.
 }
 \description{
 This function checks consistency of a given data set with the Generalized Axiom of Revealed Preference

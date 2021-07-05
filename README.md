@@ -249,10 +249,10 @@ Bronars power index for the given data set.
 # Compute power 
 result <- bronars(p, q)
 result
-#> [1] 0.844
+#> [1] 0.853
 ```
 
-We find that for the given budget conditions, there is about 84.40%
+We find that for the given budget conditions, there is about 85.30%
 probability of detecting irrational behavior. As discussed above, here
 we have followed Becker’s (1962) approach of using uniformly random
 consumption choices to simulate irrational consumers. As a final
@@ -280,7 +280,7 @@ As depicted in the figure above, the power of the GARP test increases
 with the efficiency level. This is expected as the lower is the
 efficiency level, the weaker is the test. In other words, with lower
 values of efficiency, a larger fraction of the simulated data is able to
-pass the test and hence the chances of rejecting GARP is smaller.
+pass the test and hence the likelihood of rejecting GARP is smaller.
 
 ## References
 

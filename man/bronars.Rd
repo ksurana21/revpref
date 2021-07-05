@@ -21,7 +21,7 @@ value is 1000.}
 \item{model}{Specifies which axiom (GARP, SARP, or WARP) should be used to compute the power. The default option
 is "GARP".}
 
-\item{efficiency}{The efficiency level \eqn{e}, is a real number between 0 and 1, and allows for a
+\item{efficiency}{The efficiency level \eqn{e} is a real number between 0 and 1 and allows for a
 small margin of error. The default value is 1.}
 }
 \value{
@@ -42,7 +42,7 @@ simulated data sets divided by the number of repetitions.
 \item Becker, Gary S. "Irrational behavior and economic theory." Journal of political economy 70,
 no. 1 (1962): 1-13.
 \item Bronars, Stephen G. "The power of nonparametric tests of preference maximization." Econometrica:
-Journal of the Econometric Society (1987): 693-698..
+Journal of the Econometric Society (1987): 693-698.
 }
 }
 
